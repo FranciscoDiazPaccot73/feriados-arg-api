@@ -1,20 +1,18 @@
-import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import 'swagger-ui-react/swagger-ui.css';
-
-const SwaggerUI = dynamic(import('swagger-ui-react'), {
-  ssr: false,
-});
+import { useEffect } from 'react';
 
 export default function Index() {
+  useEffect(() => {
+    window.location.assign('/docs')
+  }, [])
+
   return (
     <div>
       <Head>
-        <title>FeriadosAPI Docs</title>
+        <title>Not Found</title>
         <meta name="description" content="FeriadosAPI Docs - Powered by https://pjnovas.gitbooks.io/no-laborables/content/" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <SwaggerUI url="/swagger.json" />
     </div>
   );
 }
