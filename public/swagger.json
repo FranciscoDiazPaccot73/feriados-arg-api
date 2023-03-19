@@ -1,0 +1,228 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "FeriadosAPI Docs",
+      "version": "1.0"
+    },
+    "paths": {
+      "/api/v1/holidays": {
+        "get": {
+          "tags": [
+            "Holidays"
+          ],
+          "description": "Returns the list of holidays",
+          "responses": {
+            "200": {
+              "description": "Holidays",
+              "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "$ref": "#/components/schemas/Holiday"
+                        }
+                    }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/holidays/next": {
+        "get": {
+          "tags": [
+            "Holidays"
+          ],
+          "description": "Returns the next holidays",
+          "responses": {
+            "200": {
+              "description": "Holidays",
+              "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "$ref": "#/components/schemas/Holiday"
+                    }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/holidays/next-optional": {
+        "get": {
+          "tags": [
+            "Holidays"
+          ],
+          "description": "Returns the next optional holidays",
+          "responses": {
+            "200": {
+              "description": "Optional Holidays",
+              "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "$ref": "#/components/schemas/HolidayOptional"
+                    }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/festivos": {
+        "get": {
+          "tags": [
+            "Festivos"
+          ],
+          "description": "Returns the list of 'festivos'",
+          "responses": {
+            "200": {
+              "description": "Festivos",
+              "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "$ref": "#/components/schemas/Festivos"
+                    }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/festivos/find": {
+        "get": {
+          "tags": [
+            "Festivos"
+          ],
+          "description": "Returns the list of 'festivos' ",
+          "responses": {
+            "200": {
+              "description": "Festivos",
+              "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "array"
+                    }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/festivos/{month}": {
+        "get": {
+          "tags": [
+            "Festivos"
+          ],
+          "description": "Returns the list of 'festivos' of the month",
+          "responses": {
+            "200": {
+              "description": "Festivos",
+              "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object"
+                    }
+                }
+              }
+            }
+          }
+        }
+      },
+      "openapi": {
+        "0": "3",
+        "1": ".",
+        "2": "0",
+        "3": ".",
+        "4": "0"
+      },
+      "info": {
+        "title": "Converted from people.swagger.yaml with typeconv",
+        "version": "1",
+        "x-id": "people.swagger.yaml",
+        "x-comment": "Generated from models/people.ts by core-types-json-schema (https://github.com/grantila/core-types-json-schema) on behalf of typeconv (https://github.com/grantila/typeconv)"
+      }
+    },
+    "components": {
+      "schemas": {
+        "Festivos": {
+          "properties": {
+            "month": {
+              "type": "string"
+            },
+            "dates": {
+              "type": "object"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Holiday",
+          "type": "object"
+        },
+        "Holiday": {
+          "properties": {
+            "motivo": {
+              "type": "string"
+            },
+            "tipo": {
+              "type": "string"
+            },
+            "info": {
+              "type": "string"
+            },
+            "dia": {
+              "type": "number"
+            },
+            "mes": {
+              "type": "number"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "title": "Holiday",
+          "type": "object"
+        },
+        "HolidayOptional": {
+          "properties": {
+            "motivo": {
+              "type": "string"
+            },
+            "tipo": {
+              "type": "string"
+            },
+            "info": {
+              "type": "string"
+            },
+            "dia": {
+              "type": "number"
+            },
+            "mes": {
+              "type": "number"
+            },
+            "id": {
+              "type": "string"
+            },
+            "warning": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            }
+          },
+          "additionalProperties": false,
+          "title": "Holiday",
+          "type": "object"
+        }
+      }
+    },
+    "tags": []
+  }
